@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import { useAuth } from "@/hooks/useAuth";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -17,6 +18,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const { user } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -63,7 +65,14 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden md:block">
+          <div className="hidden items-center gap-3 md:flex">
+            <Button
+              href={user ? "/dashboard" : "/login"}
+              variant="outline"
+              size="sm"
+            >
+              {user ? "Dashboard" : "Sign In"}
+            </Button>
             <Button href="#contact" size="sm">
               Book Demo
             </Button>
@@ -104,8 +113,22 @@ export default function Navbar() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-4 border-t border-white/10 pt-4">
-                <Button href="#contact" className="w-full" size="sm">
+              <div className="mt-4 space-y-3 border-t border-white/10 pt-4">
+                <Button
+                  href={user ? "/dashboard" : "/login"}
+                  variant="outline"
+                  className="w-full"
+                  size="sm"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {user ? "Dashboard" : "Sign In"}
+                </Button>
+                <Button
+                  href="#contact"
+                  className="w-full"
+                  size="sm"
+                  onClick={() => setMobileOpen(false)}
+                >
                   Book Demo
                 </Button>
               </div>

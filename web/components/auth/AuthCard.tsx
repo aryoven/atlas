@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import { cn } from "@/lib/utils";
 
@@ -28,14 +27,15 @@ export default function AuthCard({
       className={cn("relative w-full max-w-md", className)}
     >
       <div className="mb-8 flex justify-center">
-        <Link href="/" aria-label="Back to home">
-          <Logo />
-        </Link>
+        <Logo />
       </div>
 
       <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-8 shadow-2xl shadow-black/20 backdrop-blur-xl">
         <div className="mb-6 text-center">
-          <h1 className="text-2xl font-bold tracking-tight text-white">{title}</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-white">
+            {title}
+          </h1>
+
           {description && (
             <p className="mt-2 text-sm text-muted">{description}</p>
           )}

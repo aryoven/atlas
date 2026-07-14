@@ -1,21 +1,52 @@
-# Atlas AI
+# Atlas
 
-## Mission
+> AI Operating System for Modern Businesses.
 
-Increase business revenue using AI Employees.
+Built by **Aryoven**.
+
+---
+
+## Overview
+
+Atlas is an AI Operating System that helps modern businesses automate work, manage knowledge, coordinate intelligent AI agents, and accelerate decision making from one unified workspace.
+
+Instead of using dozens of disconnected tools, Atlas brings everything together into one intelligent platform.
+
+---
 
 ## Vision
 
-Build the leading AI Workforce platform for GCC.
+Build the operating system every modern business will run on.
 
-## First Product
+---
 
-Atlas Sales Employee
+## Core Capabilities
 
-## Target Market
+- AI Agents
+- Business Automation
+- Knowledge Management
+- AI Workspace
+- Team Collaboration
+- Integrations
+- Enterprise Security
 
-Lead-driven businesses
+---
 
-## Status
+## Tech Stack
 
-Sprint 1 - In Progress 🚀
+- Next.js
+- TypeScript
+- React
+- Tailwind CSS
+
+---
+
+## Company
+
+Aryoven
+
+https://aryoven.com
+
+---
+
+> Building the AI Operating System for Modern Businesses.

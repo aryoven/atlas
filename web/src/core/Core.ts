@@ -4,7 +4,7 @@ import { MemoryEngine } from "./memory/MemoryEngine";
 import { KnowledgeEngine } from "./knowledge/KnowledgeEngine";
 
 import { ToolRegistry } from "./tools/ToolRegistry";
-import { BrowserTool } from "./tools/BrowserTool";
+import { registerTools } from "./tools/registerTools";
 
 export class Core {
   kernel: AtlasKernel;
@@ -24,8 +24,8 @@ export class Core {
 
     this.tools = new ToolRegistry();
 
-    // Register built-in tools
-    this.tools.register(new BrowserTool());
+    // Register all built-in tools
+    registerTools(this.tools);
 
     console.log("🚀 Atlas Core initialized");
   }

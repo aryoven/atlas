@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import {
-  Clock,
-  Filter,
-  Phone,
-  Link2,
-  BarChart3,
+  Bot,
+  FileText,
+  MessageSquare,
+  Settings,
+  Shield,
   Zap,
   LucideIcon,
 } from "lucide-react";
@@ -22,40 +22,40 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    icon: Clock,
-    title: "24/7 Availability",
+    icon: Bot,
+    title: "Custom AI Employees",
     description:
-      "Your AI Employees never sleep. Handle inquiries, calls, and leads around the clock without overtime costs.",
+      "Create specialized workers for sales, support, marketing, or any role you define.",
   },
   {
-    icon: Filter,
-    title: "Lead Qualification",
+    icon: FileText,
+    title: "Knowledge Base",
     description:
-      "Automatically score and qualify inbound leads using custom criteria, routing hot prospects to your team instantly.",
+      "Upload documents. Your AI Employees answer from your data — with source citations.",
   },
   {
-    icon: Phone,
-    title: "Voice Calls",
+    icon: MessageSquare,
+    title: "Persistent Chat",
     description:
-      "Natural-sounding AI voice agents that make outbound calls, handle inbound, and follow up with prospects.",
+      "Every conversation is saved. Pick up where you left off, anytime.",
   },
   {
-    icon: Link2,
-    title: "CRM Integration",
+    icon: Settings,
+    title: "Full Control",
     description:
-      "Seamlessly sync with HubSpot, Salesforce, and 50+ tools. Every interaction logged automatically.",
+      "Set instructions, choose models, and tune behavior per employee.",
   },
   {
-    icon: BarChart3,
-    title: "Analytics",
+    icon: Shield,
+    title: "Your Data, Isolated",
     description:
-      "Real-time dashboards tracking conversion rates, call volumes, response times, and revenue attribution.",
+      "Each account is private. Your knowledge and conversations stay yours.",
   },
   {
     icon: Zap,
-    title: "Automation",
+    title: "Deploy in Minutes",
     description:
-      "Build multi-step workflows that trigger emails, schedule appointments, and update records without manual work.",
+      "No code required. Create an employee, upload files, and start chatting.",
   },
 ];
 
@@ -65,8 +65,8 @@ export default function Features() {
       <Container>
         <SectionTitle
           badge="Features"
-          title="Everything you need to scale with AI"
-          description="Powerful capabilities built into every AI Employee, designed to drive revenue and reduce operational overhead."
+          title="Everything to run your AI team"
+          description="One platform to create, train, and manage AI Employees."
         />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

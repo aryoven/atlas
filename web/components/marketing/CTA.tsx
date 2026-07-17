@@ -22,23 +22,23 @@ export default function CTA() {
           />
           <div className="relative">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Ready to build your AI workforce?
+              Build your AI Team today
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-              Join 500+ businesses using Atlas AI to increase revenue, reduce
-              costs, and deliver exceptional customer experiences — 24/7.
+            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+              Create AI Employees that understand your business,
+              work with your knowledge, and help your team 24/7.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button href="#contact" size="lg">
-                Book Demo
+              <Button href="/signup" size="lg">
+                Start Free
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Button>
-              <Button href="#pricing" variant="outline" size="lg">
-                View Pricing
+              <Button href="#demo" variant="outline" size="lg">
+                Watch Demo
               </Button>
             </div>
             <p className="mt-6 text-sm text-muted">
-              14-day free trial · No credit card required · Setup in under 1 hour
+              Free forever • No credit card required • Setup in minutes
             </p>
           </div>
         </motion.div>

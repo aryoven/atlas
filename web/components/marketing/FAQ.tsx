@@ -16,37 +16,32 @@ const faqs: FAQItem[] = [
   {
     question: "What is an AI Employee?",
     answer:
-      "An AI Employee is an autonomous agent trained to perform specific business roles — like sales, support, or reception — using natural language, voice, and automation. They integrate with your existing tools and work 24/7 without breaks.",
+      "An AI Employee is a specialized AI worker you create for a specific role — sales, support, marketing, or custom. It follows your instructions and answers from your uploaded knowledge.",
   },
   {
-    question: "How quickly can I deploy an AI Employee?",
+    question: "How is this different from ChatGPT?",
     answer:
-      "Most customers deploy their first AI Employee within an hour. Choose a role template, connect your CRM and calendar, upload your knowledge base, and go live. No engineering team required.",
+      "ChatGPT is a general chatbot. Aryoven lets you build multiple AI Employees, each trained on your business knowledge, with persistent conversations and source citations.",
   },
   {
-    question: "Does Atlas AI integrate with my CRM?",
+    question: "How quickly can I get started?",
     answer:
-      "Yes. Atlas AI integrates with HubSpot, Salesforce, Pipedrive, and 50+ other tools out of the box. Every call, email, and interaction is automatically logged to your CRM.",
-  },
-  {
-    question: "How natural do the voice agents sound?",
-    answer:
-      "Our voice agents use state-of-the-art speech synthesis with sub-500ms latency. They handle interruptions, follow complex scripts, and sound indistinguishable from human agents in blind tests.",
+      "Most users create their first AI Employee and upload knowledge in under 5 minutes. No code or engineering team required.",
   },
   {
     question: "Is my data secure?",
     answer:
-      "Absolutely. All data is encrypted in transit and at rest. We are SOC 2 Type II compliant, support SSO, and offer on-premise deployment for Enterprise customers with strict data residency requirements.",
+      "Yes. Your account data is isolated with row-level security. Knowledge files and conversations are private to your account.",
   },
   {
-    question: "Can I customize the AI Employee's personality and scripts?",
+    question: "What's included in the free plan?",
     answer:
-      "Fully. You control tone, vocabulary, escalation rules, and conversation flows. Upload your sales scripts, support FAQs, and brand guidelines — the AI adapts to match your business voice.",
+      "4 AI Employees, 5 knowledge files, and 100 messages per month. No credit card required to start.",
   },
   {
-    question: "What happens during the free trial?",
+    question: "Can I upgrade later?",
     answer:
-      "You get full access to the Growth plan for 14 days, including 2 AI Employees and 500 voice minutes. No credit card required. Our team helps you set up and launch during the trial period.",
+      "Yes. Move to Pro ($29/month) or Business ($99/month) when you need more employees, unlimited messages, or team features.",
   },
 ];
 
@@ -105,8 +100,8 @@ export default function FAQ() {
       <Container>
         <SectionTitle
           badge="FAQ"
-          title="Frequently asked questions"
-          description="Everything you need to know about deploying AI Employees with Atlas AI."
+          title="Common questions"
+          description="Quick answers about Aryoven and AI Employees."
         />
 
         <motion.div

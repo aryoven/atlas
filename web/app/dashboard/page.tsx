@@ -126,7 +126,7 @@ export default async function DashboardPage() {
                 Sales, Support, Voice, or custom AI workers for your business.
               </p>
               <div className="mt-6">
-                <Button href="/dashboard/employees/new" size="sm">
+                <Button href="/onboarding" size="sm">
                   <Plus className="h-4 w-4" aria-hidden="true" />
                   Create AI Employee
                 </Button>

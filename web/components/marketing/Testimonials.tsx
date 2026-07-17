@@ -17,26 +17,26 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "Atlas AI transformed our sales pipeline. Our AI Sales Employee qualifies 3x more leads than our previous SDR team, and it never takes a day off.",
+      "I replaced three freelancers with AI Employees. My support and sales questions get answered instantly from our docs.",
     author: "Sarah Chen",
-    role: "VP of Sales",
-    company: "TechFlow Inc.",
+    role: "Founder",
+    company: "TechFlow",
     initials: "SC",
   },
   {
     quote:
-      "We reduced support response times from 4 hours to under 60 seconds. Customer satisfaction jumped 40% in the first month alone.",
+      "As a solo consultant, Aryoven handles client FAQs while I focus on delivery. Setup took less than 10 minutes.",
     author: "Marcus Williams",
-    role: "Head of Customer Success",
-    company: "CloudServe",
+    role: "Freelancer",
+    company: "MW Consulting",
     initials: "MW",
   },
   {
     quote:
-      "The voice agent handles 80% of our inbound calls without human intervention. ROI was positive within the first 30 days.",
+      "Our small agency runs four AI Employees for different clients. Knowledge stays separated and answers are cited.",
     author: "Elena Rodriguez",
-    role: "COO",
-    company: "MedFirst Clinics",
+    role: "Agency Owner",
+    company: "GrowthLab",
     initials: "ER",
   },
 ];
@@ -47,8 +47,8 @@ export default function Testimonials() {
       <Container>
         <SectionTitle
           badge="Testimonials"
-          title="Loved by forward-thinking teams"
-          description="See how businesses across industries are using Atlas AI to grow revenue and delight customers."
+          title="Trusted by early adopters"
+          description="Founders, freelancers, and small teams getting more done with AI Employees."
         />
 
         <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

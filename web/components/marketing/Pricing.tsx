@@ -16,58 +16,57 @@ type Plan = {
   features: string[];
   highlighted?: boolean;
   cta: string;
+  href: string;
 };
 
 const plans: Plan[] = [
   {
-    name: "Starter",
-    price: "$299",
+    name: "Free",
+    price: "$0",
     period: "/month",
-    description: "Perfect for small teams getting started with AI Employees.",
+    description: "For founders and freelancers getting started.",
     features: [
-      "2 AI Employees",
-      "500 voice minutes/month",
-      "CRM integration",
-      "Email & chat support",
-      "Basic analytics",
-      "Knowledge base (50 docs)",
+      "4 AI Employees",
+      "5 Knowledge Files",
+      "200 Messages/month",
+      "1 Workspace",
+      "Standard AI Models",
     ],
-    cta: "Start Free Trial",
+    cta: "Start Free",
+    href: "/signup",
   },
   {
-    name: "Growth",
-    price: "$799",
+    name: "Pro",
+    price: "$29",
     period: "/month",
-    description: "For growing businesses scaling their AI workforce.",
+    description: "For growing businesses scaling their AI team.",
     features: [
-      "8 AI Employees",
-      "2,000 voice minutes/month",
-      "Advanced CRM sync",
-      "Priority support",
-      "Custom workflows",
-      "A/B testing",
-      "Team collaboration",
-      "API access",
+      "20 AI Employees",
+      "Unlimited Messages",
+      "Unlimited Knowledge",
+      "Memory",
+      "Better AI Models",
+      "Priority Support",
     ],
     highlighted: true,
-    cta: "Start Free Trial",
+    cta: "Upgrade to Pro",
+    href: "/signup",
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "Tailored solutions for large organizations with complex needs.",
+    name: "Business",
+    price: "$99",
+    period: "/month",
+    description: "For teams that need scale and collaboration.",
     features: [
       "Unlimited AI Employees",
-      "Unlimited voice minutes",
-      "Dedicated success manager",
-      "Custom AI training",
-      "SSO & advanced security",
-      "SLA guarantees",
-      "On-premise deployment",
-      "White-label options",
+      "Team Workspace",
+      "Shared Knowledge",
+      "API Access",
+      "Premium Models",
+      "Early Access Features",
     ],
     cta: "Contact Sales",
+    href: "/contact",
   },
 ];
 
@@ -81,8 +80,8 @@ export default function Pricing() {
       <Container className="relative">
         <SectionTitle
           badge="Pricing"
-          title="Simple, transparent pricing"
-          description="Start with a 14-day free trial. No setup fees. Cancel anytime."
+          title="Build your AI team."
+          description="Start with AI Employees for free. Upgrade as your business grows."
         />
 
         <div className="mt-16 grid gap-8 lg:grid-cols-3">
@@ -132,7 +131,7 @@ export default function Pricing() {
                 </ul>
 
                 <Button
-                  href="#contact"
+                  href={plan.href}
                   variant={plan.highlighted ? "primary" : "secondary"}
                   className="w-full"
                 >

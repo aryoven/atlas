@@ -11,10 +11,9 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Features", href: "#features" },
-  { label: "Solutions", href: "#solutions" },
+  { label: "Employees", href: "#solutions" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Resources", href: "#faq" },
-  { label: "Contact", href: "#contact" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Navbar() {
@@ -73,8 +72,8 @@ export default function Navbar() {
             >
               {user ? "Dashboard" : "Sign In"}
             </Button>
-            <Button href="#contact" size="sm">
-              Book Demo
+            <Button href="/signup" size="sm">
+              Start Free
             </Button>
           </div>
 
@@ -124,12 +123,12 @@ export default function Navbar() {
                   {user ? "Dashboard" : "Sign In"}
                 </Button>
                 <Button
-                  href="#contact"
+                  href="/signup"
                   className="w-full"
                   size="sm"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Book Demo
+                  Start Free
                 </Button>
               </div>
             </Container>

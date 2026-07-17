@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import {
   TrendingUp,
   Headphones,
-  ConciergeBell,
-  Mic,
-  Mail,
-  CalendarCheck,
+  PenLine,
+  Megaphone,
+  Calculator,
+  Code2,
   LucideIcon,
   ArrowRight,
 } from "lucide-react";
@@ -26,45 +26,39 @@ type Employee = {
 const employees: Employee[] = [
   {
     icon: TrendingUp,
-    title: "Sales Employee",
-    description:
-      "Qualifies inbound leads, follows up with prospects, and books meetings with your sales team.",
-    benefits: ["Lead scoring", "Outbound follow-ups", "Meeting scheduling"],
+    title: "Sales",
+    description: "Qualify leads, answer product questions, and follow up on prospects.",
+    benefits: ["Lead responses", "Pricing answers", "Follow-ups"],
   },
   {
     icon: Headphones,
-    title: "Support Employee",
-    description:
-      "Resolves customer inquiries instantly across chat, email, and ticketing systems with human-like empathy.",
-    benefits: ["Instant responses", "Ticket resolution", "Escalation routing"],
+    title: "Support",
+    description: "Resolve customer questions instantly using your company knowledge.",
+    benefits: ["Policy answers", "Ticket help", "24/7 availability"],
   },
   {
-    icon: ConciergeBell,
-    title: "Receptionist",
-    description:
-      "Greets visitors, routes calls, and manages front-desk operations with a professional, always-on presence.",
-    benefits: ["Call routing", "Visitor management", "After-hours coverage"],
+    icon: PenLine,
+    title: "Editor",
+    description: "Draft content, refine copy, and maintain your brand voice.",
+    benefits: ["Content drafts", "Proofreading", "Tone matching"],
   },
   {
-    icon: Mic,
-    title: "Voice Agent",
-    description:
-      "Handles inbound and outbound phone calls with natural conversation, appointment booking, and data capture.",
-    benefits: ["Natural voice AI", "Call transcription", "CRM logging"],
+    icon: Megaphone,
+    title: "Marketing",
+    description: "Create campaigns, social posts, and messaging from your docs.",
+    benefits: ["Ad copy", "Social posts", "Email drafts"],
   },
   {
-    icon: Mail,
-    title: "Email Agent",
-    description:
-      "Drafts, sends, and manages email sequences for sales outreach, support follow-ups, and nurture campaigns.",
-    benefits: ["Personalized outreach", "Auto follow-ups", "Inbox management"],
+    icon: Calculator,
+    title: "Accountant",
+    description: "Answer billing, invoicing, and financial policy questions.",
+    benefits: ["Policy lookup", "FAQ answers", "Client support"],
   },
   {
-    icon: CalendarCheck,
-    title: "Appointment Setter",
-    description:
-      "Books demos, consultations, and service appointments directly into your calendar with zero back-and-forth.",
-    benefits: ["Calendar sync", "Reminder sequences", "No-show reduction"],
+    icon: Code2,
+    title: "Custom",
+    description: "Build any role you need with custom instructions and knowledge.",
+    benefits: ["Any role", "Your rules", "Your data"],
   },
 ];
 
@@ -78,8 +72,8 @@ export default function AIEmployees() {
       <Container className="relative">
         <SectionTitle
           badge="AI Employees"
-          title="Hire the AI team your business needs"
-          description="Pre-built AI Employees trained for specific roles. Deploy in minutes, customize to your brand, and start generating revenue immediately."
+          title="Build the team you need"
+          description="Pre-built roles or fully custom. Each employee learns from your knowledge."
         />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -111,12 +105,12 @@ export default function AIEmployees() {
                   ))}
                 </ul>
                 <Button
-                  href="#contact"
+                  href="/signup"
                   variant="ghost"
                   size="sm"
                   className="mt-5 w-fit px-0 hover:bg-transparent"
                 >
-                  Learn more
+                  Start Free
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </Button>
               </Card>

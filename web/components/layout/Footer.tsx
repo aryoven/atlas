@@ -54,9 +54,8 @@ export default function Footer() {
             <Logo />
 
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              Atlas AI helps businesses automate sales, support, customer
-              service, and operations using intelligent AI Employees that work
-              24/7.
+              The AI Employees platform for founders, freelancers, and growing
+              teams. Build, train, and deploy custom AI workers.
             </p>
 
             <div className="mt-6 flex gap-3">
@@ -99,11 +98,11 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
           <p className="text-sm text-muted">
-            © {new Date().getFullYear()} Atlas AI. All rights reserved.
+            © {new Date().getFullYear()} Aryoven. All rights reserved.
           </p>
 
           <p className="text-sm text-muted">
-            Built with ❤️ for modern businesses.
+            AI Employees, not chatbots.
           </p>
         </div>
       </Container>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, Monitor, BarChart2 } from "lucide-react";
+import { Play, Monitor, FileText } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 
@@ -10,9 +10,9 @@ export default function Demo() {
     <section id="demo" className="py-20 lg:py-28">
       <Container>
         <SectionTitle
-          badge="Demo"
-          title="See Atlas AI in action"
-          description="Watch how businesses deploy AI Employees to handle sales, support, and scheduling — all from one dashboard."
+          badge="Platform"
+          title="See your AI Team at work"
+          description="Build AI Employees, train them with your knowledge, and let them work for you."
         />
 
         <div className="mt-16 grid gap-8 lg:grid-cols-5">
@@ -36,9 +36,7 @@ export default function Demo() {
               </button>
             </div>
             <div className="border-t border-white/10 px-4 py-3">
-              <p className="text-sm text-muted">
-                Platform walkthrough · 3 min
-              </p>
+              <p className="text-sm text-muted">2-minute product walkthrough</p>
             </div>
           </motion.div>
 
@@ -52,26 +50,25 @@ export default function Demo() {
             <div className="flex flex-1 flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]">
               <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
                 <Monitor className="h-4 w-4 text-primary" aria-hidden="true" />
-                <span className="text-sm font-medium text-white">Dashboard Preview</span>
+                <span className="text-sm font-medium text-white">Dashboard</span>
               </div>
               <div className="flex flex-1 flex-col gap-3 p-4">
                 <div className="grid grid-cols-2 gap-3">
-                  {["Calls", "Leads", "Revenue", "CSAT"].map((metric) => (
+                  {[
+                    { label: "Employees", value: "8" },
+                    { label: "Knowledge", value: "146" },
+                    { label: "Messages", value: "1,248" },
+                    { label: "Accuracy", value: "98%" },
+                  ].map((metric) => (
                     <div
-                      key={metric}
+                      key={metric.label}
                       className="rounded-lg border border-white/10 bg-white/[0.02] p-3"
                     >
                       <p className="text-[10px] uppercase tracking-wider text-muted">
-                        {metric}
+                        {metric.label}
                       </p>
                       <p className="mt-1 text-lg font-bold text-white">
-                        {metric === "Calls"
-                          ? "1.2k"
-                          : metric === "Leads"
-                            ? "384"
-                            : metric === "Revenue"
-                              ? "$48k"
-                              : "4.9"}
+                        {metric.value}
                       </p>
                     </div>
                   ))}
@@ -89,11 +86,16 @@ export default function Demo() {
             </div>
 
             <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-primary/5 p-4">
-              <BarChart2 className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+              <FileText
+                className="h-5 w-5 shrink-0 text-primary"
+                aria-hidden="true"
+              />
               <p className="text-sm text-muted">
-                Average customers see{" "}
-                <span className="font-semibold text-white">3.2x ROI</span> within
-                90 days of deployment.
+                Every answer is grounded in your{" "}
+                <span className="font-semibold text-white">
+                  knowledge
+                </span>{" "}
+                with source citations.
               </p>
             </div>
           </motion.div>

@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import {
   Play,
-  TrendingUp,
-  Users,
-  Phone,
+  Bot,
+  FileText,
+  MessageSquare,
   Activity,
   CheckCircle2,
 } from "lucide-react";
@@ -15,16 +15,16 @@ import Container from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
 
 const stats = [
-  { label: "Active AI Employees", value: "12", icon: Users },
-  { label: "Calls Handled Today", value: "847", icon: Phone },
-  { label: "Revenue Generated", value: "$24.8k", icon: TrendingUp },
+  { label: "AI Employees", value: "8", icon: Bot },
+  { label: "Knowledge Files", value: "146", icon: FileText },
+  { label: "Messages Today", value: "1248", icon: MessageSquare },
 ];
 
 const activities = [
-  "Qualified lead from inbound call",
-  "Support ticket resolved in 42s",
-  "Appointment booked for tomorrow",
-  "Follow-up email sent to prospect",
+  "Sales Employee answered pricing question",
+  "Support Employee cited refund policy",
+  "Marketing draft completed from knowledge",
+  "Programmer AI generated production-ready code",
 ];
 
 export default function Hero() {
@@ -53,21 +53,24 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="mb-6">AI Workforce Platform</Badge>
+            <Badge className="mb-6">Build AI Employees</Badge>
             <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Build Your{" "}
+              Build your{" "}
               <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
-                AI Workforce
+                AI Team
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-              Deploy AI Employees that qualify leads, handle support, book
-              appointments, and make voice calls — working 24/7 to increase
-              your business revenue without adding headcount.
+              Create AI Employees for sales, support, marketing, coding, accounting,
+              or anything your business needs.
+              <br />
+              <br />
+              Train them with your knowledge, customize their behavior,
+              and let them work for you 24/7.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button href="#contact" size="lg">
-                Book Demo
+              <Button href="/signup" size="lg">
+                Start Free
               </Button>
               <Button href="#demo" variant="outline" size="lg">
                 <Play className="h-4 w-4" aria-hidden="true" />
@@ -75,7 +78,7 @@ export default function Hero() {
               </Button>
             </div>
             <p className="mt-6 text-sm text-muted">
-              Trusted by 500+ businesses · No credit card required
+              Free forever • No credit card required • Setup in minutes
             </p>
           </motion.div>
 
@@ -93,7 +96,7 @@ export default function Hero() {
                   <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
                   <div className="h-3 w-3 rounded-full bg-green-500/80" />
                 </div>
-                <span className="text-xs text-muted">Atlas AI Dashboard</span>
+                <span className="text-xs text-muted">Aryoven Workspace</span>
                 <div className="flex items-center gap-1.5">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
@@ -158,7 +161,7 @@ export default function Hero() {
                   )}
                 </div>
                 <p className="mt-2 text-center text-[10px] text-muted">
-                  Weekly performance · +34% vs last month
+                  Messages this week · +28% vs last week
                 </p>
               </div>
             </div>

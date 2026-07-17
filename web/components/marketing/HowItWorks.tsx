@@ -1,38 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Settings, Bot, Rocket, LineChart } from "lucide-react";
+import { UserPlus, FileUp, MessageSquare, LineChart } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 
 const steps = [
   {
     step: "01",
-    icon: Settings,
-    title: "Configure Your AI Employee",
+    icon: UserPlus,
+    title: "Create an AI Employee",
     description:
-      "Choose a role template, connect your CRM and calendar, and customize voice, tone, and business rules.",
+      "Pick a role or build a custom one. Set name, instructions, and model.",
   },
   {
     step: "02",
-    icon: Bot,
-    title: "Train on Your Business",
+    icon: FileUp,
+    title: "Upload Knowledge",
     description:
-      "Upload knowledge bases, FAQs, and sales scripts. Your AI Employee learns your products, pricing, and processes.",
+      "Add PDFs, docs, or text files. Your employee learns your business.",
   },
   {
     step: "03",
-    icon: Rocket,
-    title: "Deploy in Minutes",
+    icon: MessageSquare,
+    title: "Start Chatting",
     description:
-      "Go live on phone lines, website chat, email, or SMS. No engineering team required — launch with one click.",
+      "Ask questions. Get answers grounded in your data with source citations.",
   },
   {
     step: "04",
     icon: LineChart,
-    title: "Scale & Optimize",
+    title: "Scale Your Team",
     description:
-      "Monitor performance in real-time, A/B test scripts, and scale your AI workforce as revenue grows.",
+      "Add more employees as you grow. Each one specialized for its role.",
   },
 ];
 
@@ -42,8 +42,8 @@ export default function HowItWorks() {
       <Container>
         <SectionTitle
           badge="How It Works"
-          title="From setup to revenue in four steps"
-          description="Launch your first AI Employee in under an hour. No complex integrations or lengthy onboarding."
+          title="Live in four steps"
+          description="No engineering team. No complex setup."
         />
 
         <div className="relative mt-16">

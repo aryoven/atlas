@@ -58,6 +58,47 @@ export async function createEmployee(
   redirect("/dashboard");
 }
 
+export async function createEmployeeForOnboarding(
+  input: CreateEmployeeInput
+): Promise<{ employeeId: string } | ActionState> {
+  const parsed = createEmployeeSchema.safeParse(input);
+
+  if (!parsed.success) {
+    return {
+      error: "Please fix the errors below.",
+      fieldErrors: parsed.error.flatten().fieldErrors,
+    };
+  }
+
+  const { supabase, user } = await getAuthenticatedUser();
+
+  if (!user) {
+    return { error: "You must be signed in to create an AI Employee." };
+  }
+
+  const { data, error } = await supabase
+    .from("employees")
+    .insert({
+      user_id: user.id,
+      name: parsed.data.name,
+      role: parsed.data.role,
+      instructions: parsed.data.instructions,
+      model: parsed.data.model,
+      temperature: parsed.data.temperature,
+    })
+    .select("id")
+    .single();
+
+  if (error || !data) {
+    return { error: error?.message ?? "Failed to create AI Employee." };
+  }
+
+  revalidatePath("/dashboard");
+  revalidatePath(`/dashboard/employees/${data.id}`);
+
+  return { employeeId: data.id as string };
+}
+
 export async function updateEmployee(
   id: string,
   input: UpdateEmployeeInput

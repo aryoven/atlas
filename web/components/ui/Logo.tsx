@@ -13,7 +13,7 @@ export default function Logo({ className }: LogoProps) {
         "group flex items-center gap-2 text-xl font-bold tracking-tight transition-opacity hover:opacity-90",
         className
       )}
-      aria-label="Atlas AI home"
+      aria-label="Aryoven home"
     >
       <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/20 ring-1 ring-primary/30">
         <svg
@@ -32,7 +32,7 @@ export default function Logo({ className }: LogoProps) {
         </svg>
       </span>
       <span>
-        Atlas<span className="text-primary">AI</span>
+        Aryo<span className="text-primary">ven</span>
       </span>
     </Link>
   );

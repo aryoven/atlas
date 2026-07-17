@@ -44,7 +44,7 @@ export default function SignupForm() {
       password: values.password,
       options: {
         data: { full_name: values.fullName },
-        emailRedirectTo: `${window.location.origin}/auth/callback?next=/dashboard`,
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=/onboarding`,
       },
     });
 
@@ -54,7 +54,7 @@ export default function SignupForm() {
     }
 
     if (data.session) {
-      router.push("/dashboard");
+      router.push("/onboarding");
       router.refresh();
       return;
     }
@@ -106,7 +106,7 @@ export default function SignupForm() {
         </>
       }
     >
-      <SocialLogin redirectTo="/dashboard" />
+      <SocialLogin redirectTo="/onboarding" />
 
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">

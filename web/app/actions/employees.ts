@@ -1,5 +1,6 @@
 "use server";
 
+import { getUserPlan } from "@/lib/subscription";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createServerSupabaseClient } from "@/services/supabase-server";
@@ -10,12 +11,12 @@ import {
   type UpdateEmployeeInput,
 } from "@/lib/validations/employee";
 
+
 export type ActionState = {
   error?: string;
   fieldErrors?: Partial<Record<keyof CreateEmployeeInput, string[]>>;
 };
 
-const FREE_PLAN_EMPLOYEE_LIMIT = 4;
 
 async function getAuthenticatedUser() {
   const supabase = await createServerSupabaseClient();
@@ -30,6 +31,8 @@ async function checkEmployeeLimit(
   supabase: Awaited<ReturnType<typeof createServerSupabaseClient>>,
   userId: string
 ): Promise<string | null> {
+  const plan = await getUserPlan(userId);
+
   const { count, error } = await supabase
     .from("employees")
     .select("*", {
@@ -42,8 +45,8 @@ async function checkEmployeeLimit(
     return error.message;
   }
 
-  if ((count ?? 0) >= FREE_PLAN_EMPLOYEE_LIMIT) {
-    return `You've reached the free plan limit of ${FREE_PLAN_EMPLOYEE_LIMIT} AI Employees. Upgrade your plan to create more.`;
+  if ((count ?? 0) >= plan.employeeLimit) {
+    return `You've reached your AI Employee limit (${plan.employeeLimit}). Upgrade your plan to create more.`;
   }
 
   return null;

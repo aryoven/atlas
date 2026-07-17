@@ -15,12 +15,38 @@ export type ActionState = {
   fieldErrors?: Partial<Record<keyof CreateEmployeeInput, string[]>>;
 };
 
+const FREE_PLAN_EMPLOYEE_LIMIT = 4;
+
 async function getAuthenticatedUser() {
   const supabase = await createServerSupabaseClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
   return { supabase, user };
+}
+
+async function checkEmployeeLimit(
+  supabase: Awaited<ReturnType<typeof createServerSupabaseClient>>,
+  userId: string
+): Promise<string | null> {
+  const { count, error } = await supabase
+    .from("employees")
+    .select("*", {
+      count: "exact",
+      head: true,
+    })
+    .eq("user_id", userId);
+
+  if (error) {
+    return error.message;
+  }
+
+  if ((count ?? 0) >= FREE_PLAN_EMPLOYEE_LIMIT) {
+    return `You've reached the free plan limit of ${FREE_PLAN_EMPLOYEE_LIMIT} AI Employees. Upgrade your plan to create more.`;
+  }
+
+  return null;
 }
 
 export async function createEmployee(
@@ -39,6 +65,12 @@ export async function createEmployee(
 
   if (!user) {
     return { error: "You must be signed in to create an AI Employee." };
+  }
+
+  const limitError = await checkEmployeeLimit(supabase, user.id);
+
+  if (limitError) {
+    return { error: limitError };
   }
 
   const { error } = await supabase.from("employees").insert({
@@ -74,6 +106,12 @@ export async function createEmployeeForOnboarding(
 
   if (!user) {
     return { error: "You must be signed in to create an AI Employee." };
+  }
+
+  const limitError = await checkEmployeeLimit(supabase, user.id);
+
+  if (limitError) {
+    return { error: limitError };
   }
 
   const { data, error } = await supabase
@@ -137,6 +175,7 @@ export async function updateEmployee(
   revalidatePath("/dashboard");
   revalidatePath(`/dashboard/employees/${id}`);
   revalidatePath(`/dashboard/employees/${id}/manage`);
+
   return {};
 }
 

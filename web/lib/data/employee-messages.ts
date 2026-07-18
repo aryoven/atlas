@@ -112,3 +112,28 @@ export async function getMessageCountsByEmployee(
 
   return counts;
 }
+export async function getMonthlyMessageCount(
+  userId: string
+): Promise<number> {
+  const supabase = await createServerSupabaseClient();
+
+  const startOfMonth = new Date();
+  startOfMonth.setUTCDate(1);
+  startOfMonth.setUTCHours(0, 0, 0, 0);
+
+  const { count, error } = await supabase
+    .from("employee_messages")
+    .select("*", {
+      count: "exact",
+      head: true,
+    })
+    .eq("user_id", userId)
+    .eq("role", "user")
+    .gte("created_at", startOfMonth.toISOString());
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return count ?? 0;
+}

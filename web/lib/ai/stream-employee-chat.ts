@@ -1,3 +1,4 @@
+import { getUserPlan } from "@/lib/subscription";
 import { z } from "zod";
 import type { ChatSource } from "@/lib/types/chat";
 import type { EmployeeMessage } from "@/lib/types/employee-message";
@@ -14,6 +15,7 @@ import {
 } from "@/lib/data/employee-conversations";
 import {
   boundChatHistory,
+  getMonthlyMessageCount,
   getEmployeeMessages,
   saveEmployeeMessage,
   toChatMessageInput,
@@ -71,6 +73,23 @@ export async function* streamEmployeeChatTurn(
     yield { type: "error", error: context.error };
     return;
   }
+
+const plan = await getUserPlan(context.userId);
+
+if (Number.isFinite(plan.monthlyMessageLimit)) {
+  const monthlyMessages = await getMonthlyMessageCount(
+    context.userId
+  );
+
+  if (monthlyMessages >= plan.monthlyMessageLimit) {
+    yield {
+      type: "error",
+      error: `You've reached your monthly message limit (${plan.monthlyMessageLimit}). Upgrade your plan to continue chatting.`,
+    };
+
+    return;
+  }
+}
 
   const conversation = await getEmployeeConversationForUser(
     conversationId,

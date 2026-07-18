@@ -53,3 +53,4 @@ export function resolveOpenAIModel(model: string): string {
 
   return LEGACY_MODEL_ALIASES[model] ?? "openrouter/free";
 }
+

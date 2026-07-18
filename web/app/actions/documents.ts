@@ -1,5 +1,6 @@
 "use server";
 
+import { getUserPlan } from "@/lib/subscription";
 import { revalidatePath } from "next/cache";
 import { randomUUID } from "crypto";
 import { z } from "zod";
@@ -124,13 +125,32 @@ export async function uploadDocument(
   employeeId: string,
   formData: FormData
 ): Promise<DocumentsResult | ActionError> {
-  const context = await getAuthenticatedContext(employeeId);
+ const context = await getAuthenticatedContext(employeeId);
 
-  if ("error" in context) {
-    return context;
-  }
+if ("error" in context) {
+  return context;
+}
 
-  const file = formData.get("file");
+// Check user's subscription plan
+const plan = await getUserPlan(context.user.id);
+
+// Count current documents for this employee
+const existingDocuments = await fetchDocumentList(
+  context.employee.id,
+  context.user.id
+);
+
+// Enforce plan limit
+if (
+  Number.isFinite(plan.knowledgeLimit) &&
+  existingDocuments.length >= plan.knowledgeLimit
+) {
+  return {
+    error: `You've reached your Knowledge File limit (${plan.knowledgeLimit}). Upgrade your plan to upload more files.`,
+  };
+}
+
+const file = formData.get("file");
 
   if (!(file instanceof File)) {
     return {

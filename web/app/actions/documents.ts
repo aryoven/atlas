@@ -1,5 +1,5 @@
 "use server";
-
+import { getKnowledgeFileCount } from "@/lib/data/employee-documents";
 import { getUserPlan } from "@/lib/subscription";
 import { revalidatePath } from "next/cache";
 import { randomUUID } from "crypto";
@@ -134,16 +134,15 @@ if ("error" in context) {
 // Check user's subscription plan
 const plan = await getUserPlan(context.user.id);
 
-// Count current documents for this employee
-const existingDocuments = await fetchDocumentList(
-  context.employee.id,
+// Count knowledge files across the entire account
+const knowledgeFileCount = await getKnowledgeFileCount(
   context.user.id
 );
 
 // Enforce plan limit
 if (
   Number.isFinite(plan.knowledgeLimit) &&
-  existingDocuments.length >= plan.knowledgeLimit
+  knowledgeFileCount >= plan.knowledgeLimit
 ) {
   return {
     error: `You've reached your Knowledge File limit (${plan.knowledgeLimit}). Upgrade your plan to upload more files.`,

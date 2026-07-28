@@ -287,3 +287,23 @@ export async function cleanupUploadedDocumentArtifacts(options: {
     });
   }
 }
+
+export async function getKnowledgeFileCount(
+  userId: string
+): Promise<number> {
+  const supabase = await createServerSupabaseClient();
+
+  const { count, error } = await supabase
+    .from("employee_documents")
+    .select("*", {
+      count: "exact",
+      head: true,
+    })
+    .eq("user_id", userId);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return count ?? 0;
+}

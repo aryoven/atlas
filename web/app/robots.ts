@@ -5,7 +5,12 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: [
+        "/dashboard/",
+        "/api/",
+        "/onboarding/",
+      ],
     },
-    sitemap: "https://atlas-ai.app/sitemap.xml",
+    sitemap: "https://aryoven.com/sitemap.xml",
   };
 }

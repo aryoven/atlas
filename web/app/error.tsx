@@ -1,7 +1,5 @@
 "use client";
 
-import Button from "@/components/ui/Button";
-
 export default function Error({
   reset,
 }: {
@@ -9,24 +7,21 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-background px-6">
-      <div className="max-w-lg text-center">
+    <main className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
+      <h1 className="text-5xl font-bold text-white">
+        Something went wrong
+      </h1>
 
-        <h1 className="text-6xl font-bold text-red-500">
-          Oops!
-        </h1>
+      <p className="mt-4 text-muted">
+        An unexpected error occurred.
+      </p>
 
-        <p className="mt-6 text-muted">
-          Something went wrong.
-        </p>
-
-        <div className="mt-8">
-          <Button onClick={() => reset()}>
-            Try Again
-          </Button>
-        </div>
-
-      </div>
+      <button
+        onClick={() => reset()}
+        className="mt-8 rounded-xl bg-primary px-6 py-3 text-white"
+      >
+        Try Again
+      </button>
     </main>
   );
 }

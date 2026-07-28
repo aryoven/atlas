@@ -1,5 +1,5 @@
 /** Embedding dimension for Xenova/all-MiniLM-L6-v2. */
-export const EMBEDDING_DIMENSION = 384;
+export const EMBEDDING_DIMENSION = 1536;
 
 /** Default number of chunks retrieved per chat query. */
 export const RAG_MATCH_COUNT = 5;

@@ -22,7 +22,7 @@ create table if not exists public.employee_document_chunks (
     on delete cascade,
   content text not null,
   chunk_index integer not null,
-  embedding vector(384) not null,
+  embedding vector(1536) not null,
   created_at timestamptz not null default now()
 );
 
@@ -85,7 +85,7 @@ drop function if exists public.match_employee_document_chunks(
 );
 
 create function public.match_employee_document_chunks(
-  query_embedding vector(384),
+  query_embedding vector(1536),
   match_employee_id uuid,
   match_user_id uuid,
   match_count integer default 5,

@@ -5,7 +5,7 @@ create extension if not exists vector;
 alter table public.employee_documents
   add column if not exists extracted_text text;
 
--- document chunks with 384-dimensional embeddings (MiniLM-L6-v2)
+-- document chunks with 1536-dimensional embeddings (MiniLM-L6-v2)
 create table if not exists public.employee_document_chunks (
   id uuid primary key default gen_random_uuid(),
   document_id uuid not null references public.employee_documents (id) on delete cascade,
@@ -13,7 +13,7 @@ create table if not exists public.employee_document_chunks (
   user_id uuid not null references auth.users (id) on delete cascade,
   content text not null,
   chunk_index integer not null,
-  embedding vector(384) not null,
+  embedding vector(1536) not null,
   created_at timestamptz not null default now()
 );
 
@@ -54,7 +54,7 @@ create policy "employee_document_chunks_delete_own"
 
 -- Semantic similarity search scoped to employee + user
 create or replace function public.match_employee_document_chunks(
-  query_embedding vector(384),
+  query_embedding vector(1536),
   match_employee_id uuid,
   match_user_id uuid,
   match_count integer default 5,
@@ -86,7 +86,7 @@ as $$
 $$;
 
 grant execute on function public.match_employee_document_chunks(
-  vector(384),
+  vector(1536),
   uuid,
   uuid,
   integer,

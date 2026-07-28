@@ -236,7 +236,14 @@ const file = formData.get("file");
     const embeddedChunks = [];
 
     for (const chunk of chunks) {
+      console.log("======================================");
+      console.log("📄 Processing chunk");
+      console.log("Chunk index:", chunk.chunkIndex);
+      console.log("Chunk size:", chunk.content.length);
+
       const embedding = await createLocalEmbedding(chunk.content);
+
+      console.log("Embedding length:", embedding.length);
 
       embeddedChunks.push({
         documentId,
@@ -261,6 +268,18 @@ const file = formData.get("file");
       }
     );
 
+    console.log("======================================");
+    console.log("📦 Ready to insert");
+    console.log("Chunks:", embeddedChunks.length);
+
+    if (embeddedChunks.length > 0) {
+      console.log(
+        "First embedding length:",
+        embeddedChunks[0].embedding.length
+      );
+    }
+
+console.log("======================================");
     await insertEmployeeDocumentChunks(embeddedChunks);
 
     revalidatePath(
@@ -416,6 +435,7 @@ export async function loadEmployeeDocuments(
 }
 
 export async function uploadEmployeeDocument(
+  
   employeeId: string,
   formData: FormData
 ): Promise<
